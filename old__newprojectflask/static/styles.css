@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: beige; /* Beige background color */
+    margin: 0;
+    padding: 0;
+    background-image: url('az.jpg'); /* Replace 'your-background-image.jpg' with your image file */
+    background-size: 100% 450%; /* Adjust to your preference */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-position: center center;
+    }
+
+
+        h1 {
+            text-align: center;
+            background-color: black; /* tan background color */
+            color: white;
+            font-family: 'Times New Roman', Times, serif; /* Times New Roman font */
+            padding: 20px;
+        }
+        h2{
+            text-align: center;
+            color: black;
+            
+        }
+        
+
+        img {
+            display: block;
+            float: left; /* Move image to the left */
+            margin-right: 20px; /*to separate image and text */
+            max-width: 100px; /* Adjust the width*/
+            height: auto;
+        }
+
+        form {
+            text-align: center;
+            margin: 20px;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #800000; /* Burgundy background color */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #660000; /* Darker burgundy on hover */
+        }
