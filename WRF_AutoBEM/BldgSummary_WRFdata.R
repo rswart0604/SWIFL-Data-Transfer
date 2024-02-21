@@ -39,7 +39,7 @@ chi2=read.csv("R://WRFOutputCSV/90mResults/epvars90m_ChiMorph2_2015.Loop.csv", h
 #Can view information about the data file by using the command: summary(data) or str(data)
 #library(psych) has a nice set of tools for summary statistics
 
-#The coordinates are in two separate columns.  FOr our purposes I join the coordinates into one column with the values separated by a space.  
+#The coordinates are in two separate columns.  FOr our purposes I join the coordinates into one column with the values separated by a space.
 data$coord=paste(data$V3,data$V4,sep=" ")
 chi0$coord=paste(chi0$V3,chi1$V4,sep=" ")
 chi1$coord=paste(chi1$V3,chi1$V4,sep=" ")
@@ -52,7 +52,7 @@ chi2$coord=paste(chi2$V3,chi2$V4,sep=" ")
 
 #wrote the chi files to csv at this point in the script so if need to can import them from here without going through the skipping of rows
 
-#names are specific order to this particular file
+#names are specifichi_c order to this particular file
 names(data)=c("OID","Time_UTC","Lat","Lon","Temp.K.","DewPoint.K.","RelHumid","Pressure","RadDir.Wm.2.","RadDiff.Wm.2.","LWRad","SWNorm","SWRad","WindDir.from.","WindSpeed.ms.1.","SnowDepth.cm.","RainDepth.mm.","x","coord")
 cnames=c("OID","Time_UTC","Lat","Lon","Temp.K.","DewPoint.K.","RelHumid","Pressure","RadDir.Wm.2.","RadDiff.Wm.2.","LWRad","SWNorm","SWRad","WindDir.from.","WindSpeed.ms.1.","SnowDepth.cm.","x","coord")
 names(chi1)=cnames
@@ -67,7 +67,7 @@ names(chi0)=cnames
 #add columns with temperature and precipication converted to US units
 data$T_F=data$Temp.K.*(9/5)-459.67
 data$Rain_in=data$RainDepth.mm./25.4
-chi0$T_F=chi0$Temp.K.*(9/5)-459.67
+chi0$T_F=chi0$Temp.K.*(9/5)-459.67 # todo
 chi1$T_F=chi1$Temp.K.*(9/5)-459.67
 chi2$T_F=chi2$Temp.K.*(9/5)-459.67
 
@@ -88,7 +88,7 @@ c2coord=read.csv("R://bldgs_ORNL_Chicago/Chicago/grid_bldg2coord_90m/chi2_90m_wr
 
 #if needed format coordinate column so the precision of the values matches in both coord and data data sets 
 
-#keep only bldg id and coord
+#keep only bldg id and coord #todo coord is of the form "41.867863 -87.628662"
 bc=bcoord[,c(4,24)]
 c0=c0coord[,c(5,27)]
 c1=c1coord[,c(5,27)]

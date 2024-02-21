@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<idinfo>
+		<citation>
+			<citeinfo>
+				<origin>Science Applications International Corporation (SAIC)</origin>
+				<pubdate>201203</pubdate>
+				<title Sync="TRUE">chicago_3d_buildings_04</title>
+				<geoform Sync="TRUE">vector digital data</geoform>
+				<pubinfo>
+					<pubplace>Chantilly, VA</pubplace>
+					<publish>Science Applications International Corp. (SAIC)</publish>
+				</pubinfo>
+				<othercit>Represents building sub-elements captured as individual polygons.  Sub-elements tied to building "footprints" by BLDG_ID attribute.  Individual sub-elements attributed with geometrically derived information.</othercit>
+				<ftname Sync="TRUE">chicago_3d_buildings_04</ftname><onlink Sync="TRUE">\\9KVYVR1\F\LiDAR\5121_CLIN3003_USLID15\Chicago_IL\Delivery\shapefiles\chicago_3d_buildings_04.shp</onlink></citeinfo>
+		</citation>
+		<descript>
+			<abstract>LIDAR data is remotely sensed high-resolution elevation data collected by an airborne collection platform.  Using a combination of laser rangefinding, GPS positioning and inertial measurement technologies; LIDAR instruments are able to make highly detailed Digital Elevation Models (DEMs) of the earth's terrain, man-made structures and vegetation.  This data was collected at a resolution of 1 meter and includes reflective surface, last return, bare earth model and intensity data in separate data files.  This raw LIDAR data was then exploited using SAIC proprietary Automated Feature Extraction software that automatically detects and delineates features present in the LIDAR data.  These features include 3D building features, tree points and forest polygons.  This file represents individual components of building structures as detected in the LIDAR data.  Components are related to building "footprints" via the "Bldg_id" attribute.  Extraction of individual elements makes the resulting visualization of data in a 3D viewing environment more realistic and accurate.</abstract>
+			<purpose>LIDAR data is used for 3D visualization, elevation based analysis and for feature extraction.  Extracted features can be used for any analysis or visualization task that requires vector feature data.</purpose>
+			<supplinf>Reflective surface data represents the DEM created by laser energy reflected from the first surface encountered by the laser pulse.    Some energy may continue beyond this initial surface to be reflected by a subsequent surface as represented by the Last Return data.    Intensity information is captured from the Reflective Surface pulse and indicates the relative energy returned to the sensor as compared to the energy transmitted.  The Intensity image is not calibrated or normalized but indicates differences in energy absorption due to the the interaction of the surface materials with laser energy at the wavelength transmitted by the sensor.    Bare earth model is created by identifying those returns that fall on the ground surface and interpolating a surface between these points.  In this manner buildings and vegetation are removed from Bare Earth Model.   This data set does not include bridges and overpasses in the Bare Earth model as the delineation point for these structures is not reliably discernable in the LiDAR data.  Extracted vector feature data identifies and quantifies features present in the raw LIDAR data.  This allows for much faster visualization of data and allows attribute information to be tied to identified features.  During production, features are automatically attributed with geometrically derivable information (lengths, widths, heights, area, etc).  Current data structure supports additional attribution as it becomes available.</supplinf>
+			<langdata Sync="TRUE">en</langdata></descript>
+		<timeperd>
+			<timeinfo>
+				<rngdates>
+					<begdate>20111101</begdate>
+					<enddate>20111115</enddate>
+				</rngdates>
+				<sngdate><caldate>REQUIRED: The year (and optionally month, or month and day) for which the data set corresponds to the ground.</caldate></sngdate></timeinfo>
+			<current>ground condition</current>
+		</timeperd>
+		<status>
+			<progress>Complete</progress>
+			<update>Irregular</update>
+		</status>
+		<spdom>
+			<bounding>
+				<westbc Sync="TRUE">-87.886896</westbc>
+				<eastbc Sync="TRUE">-87.590257</eastbc>
+				<northbc Sync="TRUE">42.083425</northbc>
+				<southbc Sync="TRUE">41.865117</southbc>
+			</bounding>
+			<lboundng><leftbc Sync="TRUE">426642.936000</leftbc><rightbc Sync="TRUE">451014.541700</rightbc><bottombc Sync="TRUE">4635178.139400</bottombc><topbc Sync="TRUE">4659208.549800</topbc></lboundng></spdom>
+		<keywords>
+			<theme>
+				<themekt>Light Distancing And Ranging</themekt>
+				<themekey>LIDAR</themekey>
+			</theme>
+			<theme>
+				<themekt>Digital Elevation Model</themekt>
+				<themekey>DEM</themekey>
+			</theme>
+			<theme>
+				<themekt>Average ground sample distance 1m</themekt>
+				<themekey>1meter resolution elevation model</themekey>
+			</theme>
+			<theme>
+				<themekt>Software driven extraction of geographic feature data</themekt>
+				<themekey>Automated Feature Extraction</themekey>
+			</theme>
+			<theme>
+				<themekt>Individual elements of buildings captured as separate features</themekt>
+				<themekey>Building Components</themekey>
+			</theme>
+			<theme>
+				<themekt>Individual sections attributed with height information to support viewing in a 3D environment</themekt>
+				<themekey>3D Buildings</themekey>
+			</theme>
+			<place>
+				<placekt>U.S. Department of Commerce, 1995, Countries, Dependencies, Areas of Special Sovereignty, and Their Principal Administrative Divisions (Federal Information Processing Standard (FIPS) 10-4): Washington, D.C., National Institute of Standards and Technology</placekt>
+				<placekey>US</placekey>
+			</place>
+			<place>
+				<placekt>U.S. Department of Commerce, 1987, Codes for the Indentification of the States, the District of Columbia and the outlying areas of the United States, and associated areas (Federal Information Processing Standards (FIPS) 5-2): Washington, D.C., National Institute of Standards and Technology.</placekt>
+				<placekey>IL</placekey>
+			</place>
+			<place>
+				<placekt>City</placekt>
+				<placekey>Chicago</placekey>
+			</place>
+		</keywords>
+		<accconst>None</accconst>
+		<useconst>None.  However, users should be aware that temporal changes may have occurred since this data set was collected and some parts of this data may no longer represent actual surface conditions.  Users should not use this data for critical applications without a full awareness of it's limitations.</useconst>
+		<ptcontac>
+			<cntinfo>
+				<cntorgp>
+					<cntorg>National Geospatial-Intelligence Agency</cntorg>
+				</cntorgp>
+			</cntinfo>
+		</ptcontac>
+		<datacred>n/a</datacred>
+		<secinfo>
+			<secsys>US DOD</secsys>
+			<secclass>Unclassified</secclass>
+			<sechandl>Information Unclassified - distribution limited by Point of Contact</sechandl>
+		</secinfo>
+		<native Sync="TRUE">Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 3; ESRI ArcCatalog 9.3.1.4000</native>
+		<natvform Sync="TRUE">Shapefile</natvform></idinfo>
+	<dataqual>
+		<logic>LIDAR data is processed using Automated Feature Extraction routines.  This software is tunable to produce consistent results from different LIDAR sources and collection locations.  For this collection area the software was run with the same settings for the entire extent of LIDAR data.  Following Automated Feature Extraction Q/C processes are used to verify consistency of automated extraction and perform any required manual editing.</logic>
+		<complete>LIDAR data is processed using SAIC Automated Feature Extraction software.  Results of automated process are reviewed to verify consistancy and accuracy of feature extraction.  During review features may be added, deleted or modified to better represent the feature portrayed in the raw LIDAR data.  The goal of the process is to capture greater than 95% of building features greater than 8m x 8m in size.  In practice the software consistently exceeds this standard when processing high quality LIDAR data.</complete>
+		<posacc>
+			<horizpa>
+				<horizpar>Horizontal accuracy of the source LIDAR data can be characterized by the rule of thumb of 1/2000th of flying height or roughly 0.5 meters for this collect.  Spot checks in the field routinely are measured at 1/4000th of flying height but are not formally characterized.  Accuracy of the extracted features has not been formally established but is directly dependent on the accuracy of the source data.</horizpar>
+				<qhorizpa>
+					<horizpav>Better than 1 m</horizpav>
+					<horizpae>Estimated horizontal accuracy of extracted feature data.  Informal assessments indicate that horizontal accuracy is better than 1 m based on comparisons with ortho imagery.</horizpae>
+				</qhorizpa>
+			</horizpa>
+			<vertacc>
+				<vertaccr>The vertical accuracy was tested following the National Standards for Spatial Data Accuracy.  Based on a total of 26 control points, the average error between the bare earth LiDAR coverage and the control was -0.003 m with a root mean square error (RMSE) of 0.082 m.</vertaccr>
+				<qvertpa>
+					<vertaccv>-0.003 m</vertaccv>
+					<vertacce>the average error between the bare earth LiDAR coverage and the control</vertacce>
+				</qvertpa>
+				<qvertpa>
+					<vertaccv>0.082 m</vertaccv>
+					<vertacce>root mean square error (RMSE)</vertacce>
+				</qvertpa>
+			</vertacc>
+		</posacc>
+		<lineage>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<origin>Woolpert Inc</origin>
+						<pubdate>Unpublished Material</pubdate>
+						<title>LIDAR Data Collection</title>
+						<othercit>
+- Type of Scanner = Leica Systems ALS50-II
+	- Data Acquisition Height = 6,500-feet AGL
+	- Scanner Field of View = 40 degrees
+	- Scan Frequency = 41.8 Hertz
+	- Pulse Repetition Rate - 115.6 Kilohertz
+	- Aircraft Speed = 130 KIAS
+	- Swath Width = 4732-feet
+	- Nominal Ground Sample Distance = 3.0-feet
+	- Number of Returns Per Pulse = 2 (first and last)
+	- Distance Between Flight Lines = 3310-feet
+</othercit>
+					</citeinfo>
+				</srccite>
+				<srcscale>3000</srcscale>
+				<typesrc>DVD-ROM</typesrc>
+				<srctime>
+					<timeinfo>
+						<rngdates>
+							<begdate>20111101</begdate>
+							<enddate>20111115</enddate>
+						</rngdates>
+					</timeinfo>
+					<srccurr>ground condition</srccurr>
+				</srctime>
+				<srccitea>LIDAR</srccitea>
+				<srccontr>Raw spatial elevation information</srccontr>
+			</srcinfo>
+			<procstep>
+				<procdesc>
+Process Step:
+
+Production Narrative:  
+
+Using a Leica Systems ALS50-II Light Detection And Ranging (LiDAR) system, 55 flight lines of high density (submeter ground sample distance) data were collected over Chicago, IL (approximately 2344 square kilometers). Two returns were recorded for each laser pulse along with an intensity value for each return. Five missions were flown on November 1, November 2, November 11, and November 15.  An airborne global positioning system (GPS) base station was used to support the LiDAR data acquisition. In addition, twenty-five control points were surveyed through static methods tied into the Woolpert placed base station.
+
+Airborne GPS data was differentially processed and integrated with the post processed IMU data to derive a smoothed best estimate of trajectory (SBET).  The SBET was used to reduce the LiDAR slant range measurements to a raw reflective surface for each flight line.  The coverage was classified to extract a bare earth digital elevation model (DEM) and separate last returns.  
+
+Four layers of coverage were delivered in the ArcINFO ArcGrid binary format: reflective surface, bare-earth, last return and intensity.  
+
+System Parameters:
+
+	- Type of Scanner = Leica Systems ALS50-II
+	- Data Acquisition Height = 6,500-feet AGL
+	- Scanner Field of View = 40 degrees
+	- Scan Frequency = 41.8 Hertz
+	- Pulse Repetition Rate - 115.6 Kilohertz
+	- Aircraft Speed = 130 KIAS
+	- Swath Width = 4732-feet
+	- Nominal Ground Sample Distance = 3.0-feet
+	- Number of Returns Per Pulse = 2 (first and last)
+	- Distance Between Flight Lines = 3310-feet
+</procdesc>
+				<procdate>201111</procdate>
+			</procstep>
+			<procstep>
+				<procdesc>
+System Calibration Procedure:
+
+The ALS50 calibration and system performance is verified on a periodic basis using Woolpert's calibration range.  The calibration range consists of a large building and runway.  The edges of the building and control points along the runway have been located using conventional survey methods.  Inertial measurement unit (IMU) misalignment angles and horizontal accuracy are calculated by comparing the position of the building edges between opposing flight lines. The scanner scale factor and vertical accuracy is calculated through comparison of LiDAR data against control points along the runway.  
+
+Field calibration is performed on all flight lines to refine the IMU misalignment angles.  IMU misalignment angles are calculated from the relative displacement of features within the overlap region of adjacent (and opposing) flight lines.  The raw LiDAR data is reduced using the refined misalignment angles.
+</procdesc>
+				<procdate>201111</procdate>
+			</procstep>
+			<procstep>
+				<procdesc>
+Post Processing Procedure:
+
+Airborne GPS is differentially processed using the GrafNAV V5.1 software by Waypoint Consulting of Calgary, Alberta, Canada.  The PDOP and distance separation by day is as follows:
+
+November 1, 2011:		Average PDOP: 2.0
+Average Distance Separation: 60 km
+
+November 2, 2011:		Average PDOP: 1.8
+				Average Distance Separation: 40 km
+
+November 11, 2011:	Average PDOP: 2.0 
+				Average Distance Separation: 30 km
+
+November 15, 2011:	Average PDOP: 1.8
+				Average Distance Separation: 45 km
+
+IMU data is processed using the IPAS Pro software by Leica. 
+
+The reflective surface is derived using the ALS Post Processor software by Leica Geosystems GIS &amp; Mapping Division of Atlanta, Georgia.
+
+The classification and quality control (QC) of LiDAR data is carried out using a combination of Woolpert proprietary software and TerraScan software by Terrasolid Limited of Helsinki, Finland.
+</procdesc>
+				<procdate>201111</procdate>
+			</procstep>
+			<procstep>
+				<procdesc>Data Consolidation and Review:  Raw LiDAR data is delivered to contractor by collector.  Four layers of coverage were delivered in the ArcINFO ArcGrid binary format: reflective surface, bare-earth, last return and intensity.  These tiles are converted &amp; merged into larger ESRI GRID files and reviewed for quality and consistency.  Preliminary Bare Earth surface is reviewed and edited as required to remove or add features to bare earth surface as required by cartographic requirements.</procdesc>
+				<procdate>201203</procdate>
+			</procstep>
+			<procstep>
+				<procdesc>Automated Feature Extraction:  Using proprietary SAIC software the raw LIDAR and Bare Earth model were processed to extract and attribute building and vegetation features.  Automated extraction was followed by detailed Q/C to verify completeness and accuracy of extraction.  Final Q/C'ed features were attributed with geometrically derived attributes based on feature extents, reflective surface DEM and Bare Earth DEM.</procdesc>
+				<procdate>201203</procdate>
+			</procstep>
+			<procstep>
+				<procdesc>Data Formatting and Q/C:  Extracted and attributed features were reviewed for completeness and consistency.  Projection information and metadata were added to final vector data files.</procdesc>
+				<procdate>201203</procdate>
+			</procstep>
+			<procstep><procdesc Sync="TRUE">Metadata imported.</procdesc><srcused Sync="TRUE">C:\DOCUME~1\bakerae\LOCALS~1\Temp\xml2951.tmp</srcused><procdate Sync="TRUE">20120312</procdate><proctime Sync="TRUE">12215500</proctime></procstep><procstep><procdesc Sync="TRUE">Dataset copied.</procdesc><srcused Sync="TRUE">E:\LiDAR\5121_CLIN3003_USLID15\Chicago_IL\Delivery\shapefiles\chicago_3d_buildings_04</srcused><procdate Sync="TRUE">20120312</procdate><proctime Sync="TRUE">12230700</proctime></procstep></lineage>
+		<cloud>0</cloud>
+	</dataqual>
+	<spdoinfo>
+		<direct Sync="TRUE">Vector</direct>
+		<ptvctinf><esriterm Name="ChicagoLoop_Morph1b_Dissolve1"><efeatyp Sync="TRUE">Simple</efeatyp><efeageom code="4" Sync="TRUE"></efeageom><esritopo Sync="TRUE">FALSE</esritopo><efeacnt Sync="TRUE">0</efeacnt><spindex Sync="TRUE">TRUE</spindex><linrefer Sync="TRUE">FALSE</linrefer></esriterm></ptvctinf></spdoinfo>
+	<spref>
+		<horizsys>
+			<geodetic>
+				<horizdn Sync="TRUE">D_WGS_1984</horizdn>
+				<ellips Sync="TRUE">WGS_1984</ellips>
+				<semiaxis Sync="TRUE">6378137.000000</semiaxis>
+				<denflat Sync="TRUE">298.257224</denflat>
+			</geodetic>
+			<cordsysn><geogcsn Sync="TRUE">GCS_WGS_1984</geogcsn><projcsn Sync="TRUE">WGS_1984_UTM_Zone_16N</projcsn></cordsysn></horizsys>
+		<vertdef>
+			<altsys>
+				<altdatum>North American Vertical Datum of 1988</altdatum>
+				<altres>.01</altres>
+				<altunits>meters</altunits>
+				<altenc>Explicit elevation coordinate included with horizontal coordinates</altenc>
+			</altsys>
+		</vertdef>
+	</spref>
+	<eainfo>
+		<detailed Name="ChicagoLoop_Morph1b_Dissolve1">
+			<enttyp>
+				<enttypl Sync="TRUE">ChicagoLoop_Morph1b_Dissolve1</enttypl>
+				<enttypd>3D Building Footprints</enttypd>
+				<enttypds>SAIC</enttypds>
+				<enttypt Sync="TRUE">Feature Class</enttypt><enttypc Sync="TRUE">0</enttypc></enttyp>
+			<attr><attrlabl Sync="TRUE">OBJECTID</attrlabl><attalias Sync="TRUE">FID</attalias><attrtype Sync="TRUE">OID</attrtype><attwidth Sync="TRUE">4</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef Sync="TRUE">Internal feature number.</attrdef><attrdefs Sync="TRUE">Esri</attrdefs><attrdomv><udom Sync="TRUE">Sequential unique whole numbers that are automatically generated.</udom></attrdomv></attr><attr>
+				<attrlabl>BLDGID</attrlabl>
+				<attrdef>ID number of the entire building footprint.</attrdef>
+				<attrdefs>SAIC</attrdefs>
+				<attrdomv>
+					<udom>Sequential unique whole numbers that are automatically generated.</udom>
+				</attrdomv>
+				<attalias Sync="TRUE">BLDGID</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr>
+			<attr>
+				<attrlabl>Shape</attrlabl>
+				<attrdef>Feature geometry.</attrdef>
+				<attrdefs>ESRI</attrdefs>
+				<attrdomv>
+					<udom>Coordinates defining the features.</udom>
+				</attrdomv>
+				<attalias Sync="TRUE">Shape</attalias><attrtype Sync="TRUE">Geometry</attrtype><attwidth Sync="TRUE">0</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr>
+			<attr><attrlabl Sync="TRUE">MEAN_AVGHT_M</attrlabl><attalias Sync="TRUE">MEAN_AVGHT_M</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">Shape_Length</attrlabl><attalias Sync="TRUE">Shape_Length</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef Sync="TRUE">Length of feature in internal units.</attrdef><attrdefs Sync="TRUE">Esri</attrdefs><attrdomv><udom Sync="TRUE">Positive real numbers that are automatically generated.</udom></attrdomv></attr><attr><attrlabl Sync="TRUE">Shape_Area</attrlabl><attalias Sync="TRUE">Shape_Area</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef Sync="TRUE">Area of feature in internal units squared.</attrdef><attrdefs Sync="TRUE">Esri</attrdefs><attrdomv><udom Sync="TRUE">Positive real numbers that are automatically generated.</udom></attrdomv></attr></detailed>
+	</eainfo>
+	<distinfo>
+		<distrib>
+			<cntinfo>
+				<cntorgp>
+					<cntorg>National Geospatial-Intelligence Agency</cntorg>
+				</cntorgp>
+				<cntaddr>
+					<addrtype>physical address</addrtype>
+					<address>12300 Sunrise Valley Drive</address>
+					<city>Reston</city>
+					<state>VA</state>
+					<postal>20191</postal>
+					<country>USA</country>
+				</cntaddr>
+			</cntinfo>
+		</distrib>
+		<resdesc>CDROM / DVD</resdesc>
+		<distliab>No warranty expressed or implied is made regarding the utility or the data on any other system, nor shall the act of distribution constitute any such warranty</distliab>
+		<stdorder>
+			<nondig>ESRI Shapefile on CDROM</nondig>
+			<fees>None</fees>
+			<ordering>Upon request from distributor.  Data release caveats may apply</ordering>
+			<turnarnd>Variable</turnarnd>
+			<digform><digtinfo><transize Sync="TRUE">53.212</transize><dssize Sync="TRUE">53.212</dssize></digtinfo></digform></stdorder>
+	</distinfo>
+	<metainfo>
+		<metd Sync="TRUE">20120313</metd>
+		<metc>
+			<cntinfo>
+				<cntorgp>
+					<cntorg>National Geospatial-Intelligence Agency (NGA) .</cntorg>
+					<cntper>REQUIRED: The person responsible for the metadata information.</cntper>
+				</cntorgp>
+				<cntaddr>
+					<addrtype>physical address</addrtype>
+					<address>12300 Sunrise Valley Drive</address>
+					<city>Reston</city>
+					<state>VA</state>
+					<postal>20191</postal>
+					<country>USA</country>
+				</cntaddr>
+				<cntvoice>REQUIRED: The telephone number by which individuals can speak to the organization or individual.</cntvoice>
+			</cntinfo>
+		</metc>
+		<metstdn Sync="TRUE">FGDC Content Standards for Digital Geospatial Metadata</metstdn>
+		<metstdv Sync="TRUE">FGDC-STD-001-1998</metstdv>
+		<mettc Sync="TRUE">local time</mettc>
+		<metextns>
+			<onlink>http://www.esri.com/metadata/esriprof80.html</onlink>
+			<metprof>ESRI Metadata Profile</metprof>
+		</metextns>
+		<metextns>
+			<onlink>http://www.esri.com/metadata/esriprof80.html</onlink>
+			<metprof>ESRI Metadata Profile</metprof>
+		</metextns>
+		<metextns>
+			<onlink>http://www.esri.com/metadata/esriprof80.html</onlink>
+			<metprof>ESRI Metadata Profile</metprof>
+		</metextns>
+		<metextns>
+			<onlink>http://www.esri.com/metadata/esriprof80.html</onlink>
+			<metprof>ESRI Metadata Profile</metprof>
+		</metextns>
+		<metextns>
+			<onlink>http://www.esri.com/metadata/esriprof80.html</onlink>
+			<metprof>ESRI Metadata Profile</metprof>
+		</metextns>
+		<langmeta Sync="TRUE">en</langmeta></metainfo>
+	<Esri><CreaDate>20170912</CreaDate><CreaTime>12565200</CreaTime><SyncOnce>FALSE</SyncOnce><SyncDate>20170301</SyncDate><SyncTime>11025800</SyncTime><ModDate>20170301</ModDate><ModTime>11025800</ModTime><DataProperties><itemProps><itemName Sync="TRUE">ChicagoLoop_Morph1b_Dissolve1</itemName><imsContentType Sync="TRUE">002</imsContentType><itemLocation><linkage Sync="TRUE">file://\\GUARNERI\Urban-MET\bldgs_ORNL_Chicago\Chicago\shapefiles\ChicagoLoop_Morph1</linkage><protocol Sync="TRUE">Local Area Network</protocol></itemLocation><itemSize Sync="TRUE">0.000</itemSize></itemProps><coordRef><type Sync="TRUE">Geographic</type><geogcsn Sync="TRUE">GCS_WGS_1984</geogcsn><csUnits Sync="TRUE">Angular Unit: Degree (0.017453)</csUnits><peXml Sync="TRUE">&lt;GeographicCoordinateSystem xsi:type='typens:GeographicCoordinateSystem' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:typens='http://www.esri.com/schemas/ArcGIS/10.4'&gt;&lt;WKT&gt;GEOGCS[&amp;quot;GCS_WGS_1984&amp;quot;,DATUM[&amp;quot;D_WGS_1984&amp;quot;,SPHEROID[&amp;quot;WGS_1984&amp;quot;,6378137.0,298.257223563]],PRIMEM[&amp;quot;Greenwich&amp;quot;,0.0],UNIT[&amp;quot;Degree&amp;quot;,0.0174532925199433],AUTHORITY[&amp;quot;EPSG&amp;quot;,4326]]&lt;/WKT&gt;&lt;XOrigin&gt;-400&lt;/XOrigin&gt;&lt;YOrigin&gt;-400&lt;/YOrigin&gt;&lt;XYScale&gt;1111948722.2222221&lt;/XYScale&gt;&lt;ZOrigin&gt;-100000&lt;/ZOrigin&gt;&lt;ZScale&gt;10000&lt;/ZScale&gt;&lt;MOrigin&gt;-100000&lt;/MOrigin&gt;&lt;MScale&gt;10000&lt;/MScale&gt;&lt;XYTolerance&gt;8.983152841195215e-009&lt;/XYTolerance&gt;&lt;ZTolerance&gt;0.001&lt;/ZTolerance&gt;&lt;MTolerance&gt;0.001&lt;/MTolerance&gt;&lt;HighPrecision&gt;true&lt;/HighPrecision&gt;&lt;LeftLongitude&gt;-180&lt;/LeftLongitude&gt;&lt;WKID&gt;4326&lt;/WKID&gt;&lt;LatestWKID&gt;4326&lt;/LatestWKID&gt;&lt;/GeographicCoordinateSystem&gt;</peXml></coordRef><lineage><Process ToolSource="c:\program files (x86)\arcgis\desktop10.1\ArcToolbox\Toolboxes\Data Management Tools.tbx\Merge" Date="20160226" Time="124503">Merge chicago_3d_buildings_04;chicago_3d_buildings_02 \\ornl.gov\gistdata\DATA\ENERGY\Melissa_Allen\UrbanMicroClimate\ORNLBldgs.gdb\buildings_ChicagoLi213Merge0204 "ID "ID" true true false 19 Double 0 0 ,First,#,chicago_3d_buildings_04,ID,-1,-1,chicago_3d_buildings_02,ID,-1,-1;BLDGID "BLDGID" true true false 11 Double 0 11 ,First,#,chicago_3d_buildings_04,BLDGID,-1,-1,chicago_3d_buildings_02,BLDGID,-1,-1;SSR "SSR" true true false 16 Double 0 16 ,First,#,chicago_3d_buildings_04,SSR,-1,-1,chicago_3d_buildings_02,SSR,-1,-1;TOPELEV_M "TOPELEV_M" true true false 7 Float 2 6 ,First,#,chicago_3d_buildings_04,TOPELEV_M,-1,-1,chicago_3d_buildings_02,TOPELEV_M,-1,-1;MED_SLOPE "MED_SLOPE" true true false 11 Double 0 11 ,First,#,chicago_3d_buildings_04,MED_SLOPE,-1,-1,chicago_3d_buildings_02,MED_SLOPE,-1,-1;BASEELEV_M "BASEELEV_M" true true false 7 Float 2 6 ,First,#,chicago_3d_buildings_04,BASEELEV_M,-1,-1,chicago_3d_buildings_02,BASEELEV_M,-1,-1;HGT_AGL "HGT_AGL" true true false 7 Float 2 6 ,First,#,chicago_3d_buildings_04,HGT_AGL,-1,-1,chicago_3d_buildings_02,HGT_AGL,-1,-1;ROOFTYPE "ROOFTYPE" true true false 16 Text 0 0 ,First,#,chicago_3d_buildings_04,ROOFTYPE,-1,-1,chicago_3d_buildings_02,ROOFTYPE,-1,-1;AREA_M2 "AREA_M2" true true false 10 Double 3 9 ,First,#,chicago_3d_buildings_04,AREA_M2,-1,-1,chicago_3d_buildings_02,AREA_M2,-1,-1;AVGHT_M "AVGHT_M" true true false 10 Double 2 9 ,First,#,chicago_3d_buildings_04,AVGHT_M,-1,-1,chicago_3d_buildings_02,AVGHT_M,-1,-1;MINHT_M "MINHT_M" true true false 10 Double 2 9 ,First,#,chicago_3d_buildings_04,MINHT_M,-1,-1,chicago_3d_buildings_02,MINHT_M,-1,-1;MAXHT_M "MAXHT_M" true true false 10 Double 2 9 ,First,#,chicago_3d_buildings_04,MAXHT_M,-1,-1,chicago_3d_buildings_02,MAXHT_M,-1,-1;BASE_M "BASE_M" true true false 10 Double 2 9 ,First,#,chicago_3d_buildings_04,BASE_M,-1,-1,chicago_3d_buildings_02,BASE_M,-1,-1;LEN "LEN" true true false 8 Float 2 7 ,First,#,chicago_3d_buildings_04,LEN,-1,-1,chicago_3d_buildings_02,LEN,-1,-1;WID "WID" true true false 8 Float 2 7 ,First,#,chicago_3d_buildings_04,WID,-1,-1,chicago_3d_buildings_02,WID,-1,-1;ORIENT8 "ORIENT8" true true false 7 Float 2 6 ,First,#,chicago_3d_buildings_04,ORIENT8,-1,-1,chicago_3d_buildings_02,ORIENT8,-1,-1"</Process><Process ToolSource="c:\program files (x86)\arcgis\desktop10.1\ArcToolbox\Toolboxes\Analysis Tools.tbx\Clip" Date="20160226" Time="124759">Clip buildings_ChicagoLi213Merge0204 buildings_ChicagoLi213Merge0204 C:\Users\mrp\Documents\ArcGIS\Default.gdb\bldgs_ChicagoLoopLi213Merge0204 #</Process><Process ToolSource="c:\program files (x86)\arcgis\desktop10.4\ArcToolbox\Toolboxes\Data Management Tools.tbx\CalculateField" Date="20170227" Time="124031">CalculateField ChiLoop hasHole hasHole(!Shape!) PYTHON_9.3 "def hasHole(geom):\n  parts = geom.partCount\n  boundaries = geom.boundary().partCount\n  if boundaries &gt; parts:\n    return 1\n  else:\n    return 0"</Process><Process ToolSource="c:\program files (x86)\arcgis\desktop10.4\ArcToolbox\Toolboxes\Data Management Tools.tbx\CalculateField" Date="20170227" Time="144955">CalculateField ChiLoop hasHole hasHole(!Shape!) PYTHON_9.3 "def hasHole(geom):\n  parts = geom.partCount\n  boundaries = geom.boundary().partCount\n  if boundaries &gt; parts:\n    return 1\n  else:\n    return 0"</Process><Process ToolSource="c:\program files (x86)\arcgis\desktop10.4\ArcToolbox\Toolboxes\Data Management Tools.tbx\CalculateField" Date="20170227" Time="145115">CalculateField ChiLoop hasHole hasHole(!Shape!) PYTHON_9.3 "def hasHole(geom):\n  parts = geom.partCount\n  boundaries = geom.boundary().partCount\n  if boundaries &gt; parts:\n    return 1\n  else:\n    return 0"</Process><Process ToolSource="c:\program files (x86)\arcgis\desktop10.4\ArcToolbox\Toolboxes\Data Management Tools.tbx\CalculateField" Date="20170228" Time="085918">CalculateField ChiLoop hasHole hasHole(!Shape!) PYTHON_9.3 "def hasHole(geom):\n  parts = geom.partCount\n  boundaries = geom.boundary().partCount\n  if boundaries &gt; parts:\n    return 1\n  else:\n    return 0\n"</Process><Process ToolSource="c:\program files (x86)\arcgis\desktop10.4\ArcToolbox\Toolboxes\Data Management Tools.tbx\CalculateField" Date="20170228" Time="153701">CalculateField ChicagoLoop_Morph1 newbldid [BLDGID]&amp;991 VB #</Process><Process ToolSource="c:\program files (x86)\arcgis\desktop10.4\ArcToolbox\Toolboxes\Data Management Tools.tbx\CalculateField" Date="20170228" Time="153739">CalculateField ChicagoLoop_Morph1 BLDGID [newbldid] VB #</Process><Process ToolSource="c:\program files (x86)\arcgis\desktop10.4\ArcToolbox\Toolboxes\Data Management Tools.tbx\CalculateField" Date="20170301" Time="110553">CalculateField ChicagoLoop_Morph1b_dissolve_nodonuts donut hasHole(!Shape!) PYTHON_9.3 "def hasHole(geom):\n  parts = geom.partCount\n  boundaries = geom.boundary().partCount\n  if boundaries &gt; parts:\n    return 1\n  else:\n    return 0\n"</Process><Process ToolSource="c:\program files (x86)\arcgis\desktop10.4\ArcToolbox\Toolboxes\Data Management Tools.tbx\CalculateField" Date="20170301" Time="110946">CalculateField ChicagoLoop_Morph1b_dissolve_nodonuts donut hasHole(!Shape!) PYTHON_9.3 "def hasHole(geom):\n  parts = geom.partCount\n  boundaries = geom.boundary().partCount\n  if boundaries &gt; parts:\n    return 1\n  else:\n    return 0\n"</Process></lineage><copyHistory><copy source="R:\SouthLoop_Morphs\updated\ChicagoLoop_Morph1" dest="\\GUARNERI\Urban-MET\bldgs_ORNL_Chicago\Chicago\shapefiles\ChicagoLoop_Morph1" date="20170912" time="12565200"></copy></copyHistory></DataProperties><ArcGISFormat>1.0</ArcGISFormat></Esri><dataIdInfo><envirDesc Sync="TRUE"> Version 6.2 (Build 9200) ; Esri ArcGIS 10.4.0.5524</envirDesc><dataLang><languageCode Sync="TRUE" value="eng"></languageCode><countryCode value="USA" Sync="TRUE"></countryCode></dataLang><idCitation><resTitle Sync="TRUE">ChicagoLoop_Morph1b_Dissolve1</resTitle><presForm><PresFormCd Sync="TRUE" value="005"></PresFormCd></presForm></idCitation><spatRpType><SpatRepTypCd Sync="TRUE" value="001"></SpatRepTypCd></spatRpType><dataExt><geoEle><GeoBndBox esriExtentType="native"><westBL Sync="TRUE">426642.936</westBL><eastBL Sync="TRUE">451014.5417</eastBL><northBL Sync="TRUE">4659208.5498</northBL><southBL Sync="TRUE">4635178.1394</southBL><exTypeCode Sync="TRUE">1</exTypeCode></GeoBndBox></geoEle></dataExt><geoBox esriExtentType="decdegrees"><westBL Sync="TRUE">-87.886896</westBL><eastBL Sync="TRUE">-87.590257</eastBL><northBL Sync="TRUE">42.083425</northBL><southBL Sync="TRUE">41.865117</southBL><exTypeCode Sync="TRUE">1</exTypeCode></geoBox></dataIdInfo><mdLang><languageCode Sync="TRUE" value="eng"></languageCode><countryCode value="USA" Sync="TRUE"></countryCode></mdLang><mdStanName Sync="TRUE">ISO 19115 Geographic Information - Metadata</mdStanName><mdStanVer Sync="TRUE">DIS_ESRI1.0</mdStanVer><mdChar><CharSetCd Sync="TRUE" value="004"></CharSetCd></mdChar><mdHrLv><ScopeCd Sync="TRUE" value="005"></ScopeCd></mdHrLv><mdHrLvName Sync="TRUE">dataset</mdHrLvName><distInfo><distributor><distorTran><onLineSrc><orDesc Sync="TRUE">002</orDesc><linkage Sync="TRUE">file://\\9KVYVR1\F\LiDAR\5121_CLIN3003_USLID15\Chicago_IL\Delivery\shapefiles\chicago_3d_buildings_04.shp</linkage><protocol Sync="TRUE">Local Area Network</protocol></onLineSrc><transSize Sync="TRUE">53.212</transSize></distorTran><distorFormat><formatName Sync="TRUE">Shapefile</formatName></distorFormat></distributor><distFormat><formatName Sync="TRUE">File Geodatabase Feature Class</formatName></distFormat><distTranOps><transSize Sync="TRUE">0.000</transSize></distTranOps></distInfo><refSysInfo><RefSystem><refSysID><identCode Sync="TRUE" code="4326">WGS_1984_UTM_Zone_16N</identCode><idCodeSpace Sync="TRUE">EPSG</idCodeSpace><idVersion Sync="TRUE">6.14(3.0.1)</idVersion></refSysID></RefSystem></refSysInfo><spatRepInfo><VectSpatRep><geometObjs Name="ChicagoLoop_Morph1b_Dissolve1"><geoObjTyp><GeoObjTypCd value="002" Sync="TRUE"></GeoObjTypCd></geoObjTyp><geoObjCnt Sync="TRUE">0</geoObjCnt></geometObjs><topLvl><TopoLevCd value="001" Sync="TRUE"></TopoLevCd></topLvl></VectSpatRep></spatRepInfo><mdDateSt Sync="TRUE">20170301</mdDateSt></metadata>
