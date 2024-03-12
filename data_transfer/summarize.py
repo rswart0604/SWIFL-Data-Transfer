@@ -4,9 +4,9 @@ import pandas as pd
 # look at all of the BLDGIDs
 # and make a new csv for each one that summarizes the values from sjoin_nearest.csv
 
-prefix = '/Users/ryanswart/Projects/PyProjects/DataTransfer/data_transfer/weather_summaries/Chi0_BldgWeather_90m_'
+prefix = 'weather_summaries/Chi0_BldgWeather_90m_'
 
-fp = '/Users/ryanswart/Projects/PyProjects/DataTransfer/data_transfer/sjoin_nearest.csv'
+fp = 'sjoin_nearest.csv'
 df = pd.read_csv(fp)
 
 building_ids = list(set(df['BLDGID']))
