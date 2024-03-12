@@ -31,5 +31,4 @@ for bldg_id in building_ids:
     new_df = pd.DataFrame()
     for key, val in foo.items():
         new_df[key] = [rows[val].mean()]
-    print(new_df)
     new_df.to_csv(prefix + str(bldg_id) + '.csv')
