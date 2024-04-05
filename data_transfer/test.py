@@ -2,25 +2,56 @@ import geopandas as gpd
 # # import fiona
 import matplotlib.pyplot as plt
 import pandas as pd
+from shapely import wkt
 
-bldg_fp = '/Users/ryanswart/Projects/PyProjects/DataTransfer/WRF_AutoBEM/sample_data_fromWRF_forAutoBEM/chi0_90m_coord2bldg_smc.csv'
-weather_fp = '/Users/ryanswart/Projects/PyProjects/DataTransfer/WRF_AutoBEM/sample_data_fromWRF_forAutoBEM/chi_90m_grid.csv'
-bldg_df = pd.read_csv(bldg_fp)
-bldf_gdf = gpd.GeoDataFrame(bldg_df, geometry=gpd.points_from_xy(bldg_df.Lon, bldg_df.Lat))
-weather_df = pd.read_csv(weather_fp)
-weather_gdf = gpd.GeoDataFrame(weather_df, geometry=gpd.points_from_xy(weather_df.Lon, weather_df.Lat))
-weather_gdf.plot()
-bldf_gdf.plot()
-# ax = weather_gdf.plot()
-# bldf_gdf.plot(ax=ax)
+# matched_fp = '/Users/ryanswart/Projects/PyProjects/DataTransfer/data_transfer/matched.csv'
+# matched_df = pd.read_csv(matched_fp)
+# matched_df['geometry'] = matched_df['geometry'].apply(wkt.loads)
+# gdf = gpd.GeoDataFrame(matched_df)
+# gdf.plot(markersize=.0005)
 
-foo = gpd.sjoin(weather_gdf, bldf_gdf)
-print(foo.head())
-print(foo.keys())
-foo.plot()
+bldg_fp = '/Users/ryanswart/Projects/PyProjects/DataTransfer/data_transfer/bldg_data.csv'
+df = pd.read_csv(bldg_fp)
+bldg_gdf = gpd.GeoDataFrame(df, geometry=gpd.points_from_xy(df['lon'], df['lat']))
 
 
-plt.show()
+az_fp = '/Users/ryanswart/Projects/PyProjects/DataTransfer/data_transfer/arizona_borders'
+new_gdf = gpd.read_file(az_fp, engine='pyogrio')
+
+
+fig, ax = plt.subplots()
+new_gdf.plot(ax=ax, color='none', linewidth=0.1)
+bldg_gdf.plot(ax=ax, markersize=.000001)
+plt.savefig('all_buildings.png')
+
+
+# plt.show()
+
+
+
+
+
+
+
+
+# bldg_fp = '/Users/ryanswart/Projects/PyProjects/DataTransfer/WRF_AutoBEM/sample_data_fromWRF_forAutoBEM/chi0_90m_coord2bldg_smc.csv'
+# weather_fp = '/Users/ryanswart/Projects/PyProjects/DataTransfer/WRF_AutoBEM/sample_data_fromWRF_forAutoBEM/chi_90m_grid.csv'
+# bldg_df = pd.read_csv(bldg_fp)
+# bldf_gdf = gpd.GeoDataFrame(bldg_df, geometry=gpd.points_from_xy(bldg_df.Lon, bldg_df.Lat))
+# weather_df = pd.read_csv(weather_fp)
+# weather_gdf = gpd.GeoDataFrame(weather_df, geometry=gpd.points_from_xy(weather_df.Lon, weather_df.Lat))
+# weather_gdf.plot()
+# bldf_gdf.plot()
+# # ax = weather_gdf.plot()
+# # bldf_gdf.plot(ax=ax)
+#
+# foo = gpd.sjoin(weather_gdf, bldf_gdf)
+# print(foo.head())
+# print(foo.keys())
+# foo.plot()
+#
+#
+# plt.show()
 
 
 
