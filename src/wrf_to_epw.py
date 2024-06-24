@@ -47,6 +47,7 @@ if __name__ == '__main__':
     cldfra = np.empty(result_shape, np.float32)
     lat = ds['XLAT'][0,:,:].values
     lon = ds['XLONG'][0,:,:].values
+    hgt = ds['HGT'][0,:,:].values
     for t in range(len(times)):
         _10wspd[t,:,:], _10wdir[t,:,:] = wrf.getvar(wrfin, "uvmet10_wspd_wdir", timeidx=t)
         dewpoint[t,:,:] = wrf.getvar(wrfin, 'td2', timeidx=t, units='degC')
@@ -67,9 +68,9 @@ if __name__ == '__main__':
     south_north = ds.sizes['south_north']
 
 
-    tmy_df = pd.read_csv('/home/rswart/tmy.epw')
-    tmy_index = tmy_df.loc[(tmy_df['Month'] == new_times[0].month) & (tmy_df['Day'] == new_times[0].day) \
-            & (tmy_df['Hour'] == new_times[0].hour+1)].index.to_list()[0]
+#    tmy_df = pd.read_csv('/home/rswart/tmy.epw')
+#    tmy_index = tmy_df.loc[(tmy_df['Month'] == new_times[0].month) & (tmy_df['Day'] == new_times[0].day) \
+#            & (tmy_df['Hour'] == new_times[0].hour+1)].index.to_list()[0]
 
     print(time.time()-old)
     print("////////")
@@ -121,17 +122,23 @@ if __name__ == '__main__':
         df = pd.DataFrame(data_dict)
         print(time.time()-old)
         
-        tmy_df.iloc[tmy_index:tmy_index+len(new_times)] = df.iloc[0:len(new_times)]
+        f = open(os.path.join(epwdir, f'{num}.header'), 'w')
+        f.write(f'LOCATION,Phoenix-Sky Harbor Intl AP,AZ,USA,TMY3,722780,{round(lat[i][j],5)},{round(lon[i][j],5)},-7.0,{round(hgt[i][j],1)}')
+        f.close()
+        print(time.time()-old)
+
+        df.to_csv(os.path.join(epwdir, f'{num}.epw'), header=False, index=False)
         print(time.time()-old)
         
-        tmy_df.to_csv(os.path.join(epwdir, f'{num}.epw'), header=False, index=False)
-        print(time.time()-old)
         print('======')
 
         del df
         gc.collect()
 
-    import multiprocessing
-    with multiprocessing.Pool(2) as p:
-        p.map(make_epw, range(50))
+   #for i in range(lat.size):
+    for i in range(100):
+        make_epw(i)
+    #import multiprocessing
+    #with multiprocessing.Pool(2) as p:
+    #    p.map(make_epw, range(500))
 
