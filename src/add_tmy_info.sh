@@ -29,4 +29,4 @@ mv newput01 ending_tmy.epw
 #find "$EPW_DIR" -type f -name "*.epw" | xargs -P "$PARALLEL_PROCESSES" -I {} sh -c 'cat beginning_tmy.epw "{}" > "{}.tmp" && mv "{}.tmp" "{}" && cat ending_tmy.epw >> "{}"'
 
 find "$EPW_DIR" -type f -name "*.epw" | xargs -P "$PARALLEL_PROCESSES" -I {} sh -c 'header_file="${1%.epw}.header"; cat "$header_file" beginning_tmy.epw "$1" ending_tmy.epw > "$1.tmp" && mv "$1.tmp" "$1"' _ {}
-rm /scratch/rswart/*.header
+rm /scratch/rswart/epws/*.header

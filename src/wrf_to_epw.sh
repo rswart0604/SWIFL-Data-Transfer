@@ -1,7 +1,8 @@
 #!/bin/bash
 #SBATCH -c 2  # number of cores to allocate
-#SBATCH --mem=7G
-#SBATCH -t 0-03:00:00  # time in d-hh:mm:ss
+#SBATCH --exclude=ch001,ch002
+#SBATCH --mem=6G
+#SBATCH -t 0-04:00:00  # time in d-hh:mm:ss
 #SBATCH --mail-type=ALL # Send an e-mail when a job starts, stops, or fails
 #SBATCH -o %j.out
 #SBATCH -e %j.err

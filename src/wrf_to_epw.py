@@ -136,7 +136,7 @@ if __name__ == '__main__':
         gc.collect()
     
     old = time.time()
-    for i in range(lat.size):
+    for i in range(65339, lat.size):  # todo delete 65339
         make_epw(i)
     print(time.time()-old)
     #import multiprocessing

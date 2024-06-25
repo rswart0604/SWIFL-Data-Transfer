@@ -43,7 +43,7 @@ if __name__ == '__main__':
         gdf.to_file(os.path.join(tmp_shpdir, f'{num}.shp'))
 
     oldold = time.time()
-    with multiprocessing.Pool(3) as p:
-        p.map(do_thing, range(west_east*south_north))
+    with multiprocessing.Pool(4) as p:
+        p.map(do_thing, range(lat.size))
     print(f'total time is {time.time()-oldold}')
 
