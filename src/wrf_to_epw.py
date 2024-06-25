@@ -76,7 +76,7 @@ if __name__ == '__main__':
     print("////////")
 
     def make_epw(num):
-        old = time.time()
+        #old = time.time()
 
         i = num // west_east
         j = num % west_east
@@ -117,27 +117,28 @@ if __name__ == '__main__':
                 "Liquid Precipitation Depth {mm}": np.zeros(len(times)),
                 "Liquid Precipitation Quantity {hr}": np.zeros(len(times))
             }
-        print(time.time()-old)
+        #print(time.time()-old)
 
         df = pd.DataFrame(data_dict)
-        print(time.time()-old)
+        #print(time.time()-old)
         
         f = open(os.path.join(epwdir, f'{num}.header'), 'w')
-        f.write(f'LOCATION,Phoenix-Sky Harbor Intl AP,AZ,USA,TMY3,722780,{round(lat[i][j],5)},{round(lon[i][j],5)},-7.0,{round(hgt[i][j],1)}')
+        f.write(f'LOCATION,Phoenix-Sky Harbor Intl AP,AZ,USA,TMY3,722780,{round(lat[i][j],5)},{round(lon[i][j],5)},-7.0,{round(hgt[i][j],1)}\n')
         f.close()
-        print(time.time()-old)
+        #print(time.time()-old)
 
         df.to_csv(os.path.join(epwdir, f'{num}.epw'), header=False, index=False)
-        print(time.time()-old)
+        #print(time.time()-old)
         
-        print('======')
+        #print('======')
 
         del df
         gc.collect()
-
-   #for i in range(lat.size):
-    for i in range(100):
+    
+    old = time.time()
+    for i in range(lat.size):
         make_epw(i)
+    print(time.time()-old)
     #import multiprocessing
     #with multiprocessing.Pool(2) as p:
     #    p.map(make_epw, range(500))
