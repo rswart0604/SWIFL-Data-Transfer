@@ -1,0 +1,5 @@
+output*.txt
+*.err
+*.out
+outputs/
+supplemental_materials/Chicago/CHICAGO_weather_summaries/
