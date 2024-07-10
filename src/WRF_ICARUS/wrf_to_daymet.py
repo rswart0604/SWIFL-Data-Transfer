@@ -128,10 +128,12 @@ swe_attr = dict(_FillValue = -9999.0, long_name = "snow water equivalent", units
     missing_value = -9999.0, coordinates = "lat lon", grid_mapping = "lambert_conformal_conic", cell_methods = "area: mean time: mean")
 swrad_attr = dict(_FillValue = -9999.0, long_name = "daylight average incident shortwave radiation", units = "W/m2",
     missing_value = -9999.0, coordinates = "lat lon", grid_mapping = "lambert_conformal_conic", cell_methods = "area: mean time: mean")
-# tmin
-# tmax
-# vp
-
+tmin_attr = dict(_FillValue = -9999.0, long_name = "daily minimum temperature", units = "degrees C",
+    missing_value = -9999.0, coordinates = "lat lon", grid_mapping = "lambert_conformal_conic", cell_methods = "area: mean time: minimum")
+tmax_attr = dict(_FillValue = -9999.0, long_name = "daily maximum temperature", units = "degrees C",
+    missing_value = -9999.0, coordinates = "lat lon", grid_mapping = "lambert_conformal_conic", cell_methods = "area: mean time: maximum")
+vp_attr = dict(_FillValue = -9999.0, long_name = "daily average vapor pressure", units = "Pa",
+    missing_value = -9999.0, coordinates = "lat lon", grid_mapping = "lambert_conformal_conic", cell_methods = "area: mean time: mean")
 
 
 
