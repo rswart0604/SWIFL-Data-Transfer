@@ -11,16 +11,17 @@ import numpy as np
 
 WRF_FP = '/scratch/rswart/wrfout_d03_2020-05-16_00_1km_ctrl.nc'
 
+# day length in seconds
 def get_day_length(dayOfYear, lat):
     latInRad = np.deg2rad(lat)
     declinationOfEarth = 23.45 * np.sin(np.deg2rad(360.0 * (283.0 + dayOfYear) / 365.0))
     if -np.tan(latInRad) * np.tan(np.deg2rad(declinationOfEarth)) <= -1.0:
-        return 24*60
+        return 24*60*60
     elif -np.tan(latInRad) * np.tan(np.deg2rad(declinationOfEarth)) >= 1.0:
         return 0
     else:
         hourAngle = np.rad2deg(np.arccos(-np.tan(latInRad) * np.tan(np.deg2rad(declinationOfEarth))))
-        return int((2.0 * hourAngle / 15.0) * 60)
+        return int((2.0 * hourAngle / 15.0) * 60)*60
 
 
 # open up our wrf output
@@ -84,26 +85,26 @@ y_var = [northing_start + 1000*x for x in range(len(ds.south_north))]
 # make a bunch of raw variables and then transform them to fit the 1day format
 prcp_raw = ds['RAINNC'][first_index:last_index,:,:]
 temp_raw = ds['T2'][first_index:last_index,:,:]
-srad_raw = ds['SWDOWN'][first_index:last_index,:,:]
+swrad_raw = ds['SWDOWN'][first_index:last_index,:,:]
 swe_raw = ds['SWE'][first_index:last_index,:,:]
 
 # transform data (ie prcp should be summed)
 prcp_var = np.zeros((len(yearday_var),prcp_raw.shape[1],prcp_raw.shape[2]))
 tmin_var = np.zeros((len(yearday_var),temp_raw.shape[1],temp_raw.shape[2]))
 tmax_var = np.zeros((len(yearday_var),temp_raw.shape[1],temp_raw.shape[2]))
-srad_var = np.zeros((len(yearday_var),srad_raw.shape[1],srad_raw.shape[2]))
+swrad_var = np.zeros((len(yearday_var),swrad_raw.shape[1],swrad_raw.shape[2]))
 swe_var = np.zeros((len(yearday_var),swe_raw.shape[1],swe_raw.shape[2]))
 vp_var = np.zeros((len(yearday_var),swe_raw.shape[1],swe_raw.shape[2]))
 
 vectorized_get_day_length = np.vectorize(get_day_length)
-doy_col = np.array(yearday)[:, np.newaxis, np.newaxis]  # todo idk about this
+doy_col = np.array(yearday)[:, np.newaxis, np.newaxis]
 dayl_var = vectorized_get_day_length(doy_col, lat)
 
 for t in range(len(yearday_var)):
     prcp_var[t,:,:] = np.sum(prcp_raw[t*24:t*24 + 24,:,:], axis=0)
     tmin_var[t,:,:] = np.min(temp_raw[t*24:t*24 + 24,:,:], axis=0)
     tmax_var[t,:,:] = np.max(temp_raw[t*24:t*24 + 24,:,:], axis=0)
-    srad_var[t,:,:] = np.average(srad_raw[t*24:t*24 + 24][srad_raw[t*24:t*24 + 24] > 0.0])
+    swrad_var[t,:,:] = np.average(swrad_raw[t*24:t*24 + 24][swrad_raw[t*24:t*24 + 24] > 0.0])
     swe_var[t,:,:] = np.mean(swe_raw[t*24:t*24 + 24,:,:], axis=0)
 
 for t in range(first_index, last_index):
@@ -156,7 +157,17 @@ new_ds = xr.Dataset(
         Conventions = "CF-1.6",
     )
 )
-new_ds.to_netcdf('/scratch/rswart/test.nc')
+new_ds.to_netcdf('/scratch/rswart/daymet_v4_daily_na_prcp_2020.nc')
 new_ds.drop_vars('prcp')
-new_ds['dayl']
-
+new_ds = new_ds.assign(dayl=(['time','y','x'], dayl_var, dayl_attr))
+new_ds.to_netcdf('/scratch/rswart/daymet_v4_daily_na_dayl_2020.nc')
+new_ds = new_ds.assign(swe=(['time','y','x'], swe_var, swe_attr))
+new_ds.to_netcdf('/scratch/rswart/daymet_v4_daily_na_swe_2020.nc')
+new_ds = new_ds.assign(swrad=(['time','y','x'], swrad_var, swrad_attr))
+new_ds.to_netcdf('/scratch/rswart/daymet_v4_daily_na_swrad_2020.nc')
+new_ds = new_ds.assign(tmin=(['time','y','x'], tmin_var, tmin_attr))
+new_ds.to_netcdf('/scratch/rswart/daymet_v4_daily_na_tmin_2020.nc')
+new_ds = new_ds.assign(tmax=(['time','y','x'], tmax_var, tmax_attr))
+new_ds.to_netcdf('/scratch/rswart/daymet_v4_daily_na_tmax_2020.nc')
+new_ds = new_ds.assign(vp=(['time','y','x'], vp_var, vp_attr))
+new_ds.to_netcdf('/scratch/rswart/daymet_v4_daily_na_vp_2020.nc')
