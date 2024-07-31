@@ -54,7 +54,7 @@ if __name__ == '__main__':
         rh[t,:,:] = wrf.getvar(wrfin, 'rh2', timeidx=t)
         swnorm[t,:,:] = wrf.getvar(wrfin, 'SWDOWN', timeidx=t) / wrf.getvar(wrfin, 'COSZEN', timeidx=t)
         t2[t,:,:] = wrf.getvar(wrfin, 'T2', timeidx=t) - 273
-        pres[t,:,:] = wrf.getvar(wrfin, 'PSFC', timeidx=t, units='Pa')
+        pres[t,:,:] = wrf.getvar(wrfin, 'PSFC', timeidx=t)
         glw[t,:,:] = wrf.getvar(wrfin, 'GLW', timeidx=t)
         cldfra[t,:,:] = np.max(ds['CLDFRA'][t,:,:,:], axis=0).values
 
@@ -136,7 +136,7 @@ if __name__ == '__main__':
         gc.collect()
     
     old = time.time()
-    for i in range(65339, lat.size):  # todo delete 65339
+    for i in range(lat.size):  # todo delete 65339
         make_epw(i)
     print(time.time()-old)
     #import multiprocessing
