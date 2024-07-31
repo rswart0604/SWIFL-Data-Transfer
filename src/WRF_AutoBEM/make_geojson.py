@@ -6,6 +6,14 @@ import numpy as np
 from dask import delayed, compute
 from dask.distributed import Client, LocalCluster
 
+"""
+this script is to take all of the result csvs from AutoBEM after it is run (OUTPUT FILES)
+and put them into a shp file so that we can look at it.
+
+every building has a single row
+"""
+
+
 
 if __name__ == '__main__':
 
