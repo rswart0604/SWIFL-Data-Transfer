@@ -11,12 +11,15 @@
 # change the following variables with your use case
 # date variables of format f",{month number},{day number},{hour number},"
 # and for END_DATE, the hour number is one more than what you want to cut off at (due to csplit functionality)
+#
+# case in point; BEGIN_DATE should be the time of the first record you have in your wrfout
+#		 and END_DATE is one hour later than the time of the last record in wrfout
 
 TMY_FILE='tmy.epw'
-BEGIN_DATE=",5,15,18,"
-END_DATE=",5,31,19,"
+BEGIN_DATE=",5,14,18,"
+END_DATE=",5,31,18,"
 PARALLEL_PROCESSES=4
-EPW_DIR="/scratch/rswart/epws"
+EPW_DIR="/scratch/rswart/conus404_epws"
 
 
 csplit -f output "$TMY_FILE" /"$BEGIN_DATE"/
