@@ -40,5 +40,5 @@ if __name__ == '__main__':
     print(f'done with big df after {time.time()-old} seconds')
     
     gdf = gpd.GeoDataFrame(big_df, crs='epsg:4326')
-    gdf.to_file('/scratch/rswart/all_attrs.shp')
+    gdf.to_file('/scratch/rswart/building_results.shp')
 

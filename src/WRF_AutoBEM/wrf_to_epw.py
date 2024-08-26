@@ -57,6 +57,7 @@ if __name__ == '__main__':
         pres[t,:,:] = wrf.getvar(wrfin, 'PSFC', timeidx=t)
         glw[t,:,:] = wrf.getvar(wrfin, 'GLW', timeidx=t)
         cldfra[t,:,:] = np.max(ds['CLDFRA'][t,:,:,:], axis=0).values
+        # todo, get ground temp
 
     # modify times to fit our local needs (convert from utc to az time)
     df = pd.DataFrame(times)
@@ -124,6 +125,7 @@ if __name__ == '__main__':
         
         f = open(os.path.join(epwdir, f'{num}.header'), 'w')
         f.write(f'LOCATION,Phoenix-Sky Harbor Intl AP,AZ,USA,TMY3,722780,{round(lat[i][j],5)},{round(lon[i][j],5)},-7.0,{round(hgt[i][j],1)}\n')
+        # todo, add ground temp
         f.close()
         #print(time.time()-old)
 
@@ -136,7 +138,7 @@ if __name__ == '__main__':
         gc.collect()
     
     old = time.time()
-    for i in range(lat.size):  # todo delete 65339
+    for i in range(lat.size):
         make_epw(i)
     print(time.time()-old)
     #import multiprocessing

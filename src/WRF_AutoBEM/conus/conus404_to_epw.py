@@ -2,6 +2,7 @@ import xarray as xr
 import os
 import wrf
 import dask
+import numpy as np
 from netCDF4 import Dataset
 
 if __name__ == '__main__':
@@ -19,7 +20,6 @@ if __name__ == '__main__':
 
     wrf.omp_set_num_threads(4)
     #times = wrf.extract_times(wrfin, timeidx=wrf.ALL_TIMES)
-    times = wrf.
     result_shape = (len(times), 414, 354)  # todo change this
     _10wspd, _10wdir = np.empty(result_shape, np.float32), np.empty(result_shape, np.float32)
     dewpoint = np.empty(result_shape, np.float32)
@@ -29,15 +29,10 @@ if __name__ == '__main__':
     t2 = np.empty(result_shape, np.float32)
     glw = np.empty(result_shape, np.float32)
     cldfra = np.empty(result_shape, np.float32)
-    lat = ds['XLAT'][0,:,:].values
-    lon = ds['XLONG'][0,:,:].values
-    hgt = ds['HGT'][0,:,:].values
 
 
 
-    for fp in wrfin_fps:
-        
 
-    #ds = xr.open_mfdataset(files, parallel=True, chunks='auto')
+
 
 
