@@ -13,9 +13,9 @@ from geopy.distance import distance
 this script takes in a wrfout file (WRF_FP), goes through it, and creates a time series
     of several variables (relevant to EnergyPlus) for each wrf grid cell, giving it a unique id
     in an epw file
-    this id also refers to a unique shapefile that has the geometry of the grid cell
-    all epws are stores in a dir called "epws", all shapefile folders in a dir called "shapefiles"
-    enabled with openmp. run with 4 cores for decent speeds
+    this id also refers to a unique shapefile that has the geometry of the grid cell (created by make_shp.py)
+    all epws are stores in a dir called "epws"
+    enabled with openmp in wrf-python! run with 4 cores for decent speeds
 """
 if __name__ == '__main__':
     
@@ -29,14 +29,12 @@ if __name__ == '__main__':
     epwdir = os.path.join(OUT_DIR, 'epws')
     if not os.path.exists(epwdir):
         os.mkdir(os.path.join(OUT_DIR,'epws'))
-    
-    import gc
 
     wrf.omp_set_num_threads(4)
     ds = xr.open_dataset(WRF_FP)
     wrfin = Dataset(WRF_FP)
     times = wrf.extract_times(wrfin, timeidx=wrf.ALL_TIMES)
-    result_shape = (len(times), 414, 354)  # todo change this
+    result_shape = (len(times), len(ds.south_north), len(ds.west_east))
     _10wspd, _10wdir = np.empty(result_shape, np.float32), np.empty(result_shape, np.float32)
     dewpoint = np.empty(result_shape, np.float32)
     rh = np.empty(result_shape, np.float32)
@@ -57,7 +55,6 @@ if __name__ == '__main__':
         pres[t,:,:] = wrf.getvar(wrfin, 'PSFC', timeidx=t)
         glw[t,:,:] = wrf.getvar(wrfin, 'GLW', timeidx=t)
         cldfra[t,:,:] = np.max(ds['CLDFRA'][t,:,:,:], axis=0).values
-        # todo, get ground temp
 
     # modify times to fit our local needs (convert from utc to az time)
     df = pd.DataFrame(times)
@@ -68,17 +65,10 @@ if __name__ == '__main__':
     west_east = ds.sizes['west_east']
     south_north = ds.sizes['south_north']
 
-
-#    tmy_df = pd.read_csv('/home/rswart/tmy.epw')
-#    tmy_index = tmy_df.loc[(tmy_df['Month'] == new_times[0].month) & (tmy_df['Day'] == new_times[0].day) \
-#            & (tmy_df['Hour'] == new_times[0].hour+1)].index.to_list()[0]
-
-    print(time.time()-old)
+    print('time to get data: ', time.time()-old)
     print("////////")
 
     def make_epw(num):
-        #old = time.time()
-
         i = num // west_east
         j = num % west_east
         data_dict = {
@@ -118,30 +108,16 @@ if __name__ == '__main__':
                 "Liquid Precipitation Depth {mm}": np.zeros(len(times)),
                 "Liquid Precipitation Quantity {hr}": np.zeros(len(times))
             }
-        #print(time.time()-old)
 
         df = pd.DataFrame(data_dict)
-        #print(time.time()-old)
-        
         f = open(os.path.join(epwdir, f'{num}.header'), 'w')
         f.write(f'LOCATION,Phoenix-Sky Harbor Intl AP,AZ,USA,TMY3,722780,{round(lat[i][j],5)},{round(lon[i][j],5)},-7.0,{round(hgt[i][j],1)}\n')
-        # todo, add ground temp
         f.close()
-        #print(time.time()-old)
-
         df.to_csv(os.path.join(epwdir, f'{num}.epw'), header=False, index=False)
-        #print(time.time()-old)
-        
-        #print('======')
-
         del df
-        gc.collect()
-    
+
     old = time.time()
     for i in range(lat.size):
         make_epw(i)
     print(time.time()-old)
-    #import multiprocessing
-    #with multiprocessing.Pool(2) as p:
-    #    p.map(make_epw, range(500))
 

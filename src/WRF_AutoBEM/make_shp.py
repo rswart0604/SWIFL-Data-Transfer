@@ -8,6 +8,15 @@ import time
 import os
 import multiprocessing
 
+'''
+This file takes the wrfout that you are using as input and makes the "mesh" for it in the form
+    of several shp files. These contain no information other than the bounds of each wrf grid and are numbered
+    from 1 to the number of grid cells.
+    
+The purpose of these shp files is to allow AutoBEM to detect what buildings are in each wrf grid cell
+    and then use the corresponding epw file for those buildings
+'''
+
 if __name__ == '__main__':
 
 
@@ -33,7 +42,6 @@ if __name__ == '__main__':
         return Polygon([ll, lr, ur, ul])
 
     def do_thing(num):
-        old = time.time()
         i = num // west_east
         j = num % west_east
         gdf = gpd.GeoDataFrame({'geometry': [create_square(lat[i,j],lon[i,j],DIAG_LENGTH)]})

@@ -7,7 +7,7 @@ from dask.distributed import Client, LocalCluster
 
 """
 this script is to take all of the epws (INPUT FILES) and turn them into one big shp file
-this is so we can compare what our WRF-drive input epws are to the normal NP input epws
+this is so we can compare what our WRF-drive input epws are to the normal NASA POWER input epws
 
 every epw is identified by its geometry, etc. all 384 hours are stored for each epw
 """
